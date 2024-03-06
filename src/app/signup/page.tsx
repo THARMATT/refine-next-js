@@ -22,7 +22,7 @@ const[buttonDisabled,setButtonDisabled]=React.useState(false)
         router.push("/signin")
         
     } catch (error:any) {
-        console.log(error.message,"SIgnup failed")
+        console.log(error.message,"Signup failed")
        toast.error(error.message) 
     }
     finally{

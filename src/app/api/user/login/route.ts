@@ -55,7 +55,8 @@ response.cookies.set("token",token,{
     httpOnly:true
 })
 return response;
-  } catch (error: any) {
+  } 
+  catch (error: any) {
     return NextResponse.json(
       {
         error: error.message,
