@@ -16,18 +16,17 @@ function SignUpPage() {
 const[buttonDisabled,setButtonDisabled]=React.useState(false)
   const onSignup=async()=>{
     try {
-        setLoading(true);
-        const response =await axios.post("api/user/signup",user)
-        console.log("Signup successfully",response.data)
-        router.push("/signin")
-        
-    } catch (error:any) {
-        console.log(error.message,"Signup failed")
-       toast.error(error.message) 
-    }
-    finally{
-        setLoading(false)
-    }
+      setLoading(true);
+      const response = await axios.post("/api/user/signup", user);
+      console.log("Signup successfully", response.data);
+      router.push("/signin");
+  } catch (error) {
+      console.error("Signup failed", error);
+      toast.error("Failed to sign up. Please try again later.");
+  } finally {
+      setLoading(false);
+  }
+  
 
   }
   useEffect(() => {
