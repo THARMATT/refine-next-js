@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const currentUser = request.cookies.get('currentUser')?.value ||''
  
-  if (currentUser && !request.nextUrl.pathname.startsWith('/profile')) {
+  if (currentUser && !request.nextUrl.pathname.startsWith('/profile'||'/verifyEmail')) {
     return Response.redirect(new URL('/profile', request.url))
   }
  
@@ -13,5 +13,5 @@ export function middleware(request: NextRequest) {
 }
  
 export const config = {
-  matcher: ['/','/profile','/signin','/signup'],
+  matcher: ['/','/profile','/signin','/signup',"/verifyEmail"],
 }
